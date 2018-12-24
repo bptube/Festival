@@ -155,6 +155,8 @@ class Main extends PluginBase implements Listener{
 	public function onEnable() : void{
 
         $this->getServer()->getPluginManager()->registerEvents($this, $this); // Load data & configurations
+        //$this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this); // dev 1.8.1
+
         $newchange = []; // list of missing config flags/options
 		if(!is_dir($this->getDataFolder())){
 			mkdir($this->getDataFolder());
