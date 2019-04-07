@@ -1,4 +1,5 @@
 <?php
+
 /** Festival 1.1.1
  *
  *                          |~
@@ -463,14 +464,14 @@ class Main extends PluginBase implements Listener{
      * @file resources nl.json
 	 * @var obj Language
 	 */
-    public function loadLanguage($languageCode =  'en' ){
+    public function loadLanguage($languageCode =  'es' ){
       $resources = $this->getResources(); // read files in resources folder
       foreach($resources as $resource){
-        if($resource->getFilename() === "en.json"){
-          $default = json_decode(file_get_contents($resource->getPathname(), true), true);
+        if($resource->getFilename() === "es.json"){
+          $default = json_decode(file_get_contents($resource->getPathname(), true), true, JSON_UNESCAPED_UNICODE);
         }
         if($resource->getFilename() === $languageCode.".json"){
-          $setting = json_decode(file_get_contents($resource->getPathname(), true), true);
+          $setting = json_decode(file_get_contents($resource->getPathname(), true), true, JSON_UNESCAPED_UNICODE);
         }
       }
       if(isset($setting)){
